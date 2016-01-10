@@ -11,6 +11,10 @@
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
 
+static GLfloat zDistance = 0.0f;
+
+
+
 
 // 윈도우 크기 선언
 GLfloat window_width;
@@ -33,38 +37,52 @@ void TimerFunc(int value) {
 
 
 void RenderScene(void) {
-    static GLfloat fElect1 = 0.0f;
-    glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glTranslatef(0.0f,0.0f,-100.0f);
     
-    glColor3f(0.96, 0.76, 0.73);
+    static GLfloat fElect1 = 0.0f;
+    static GLfloat fElect2 = 0.0f;
+    
+    glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
+    
+     glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glRotatef(xRot,1.0f,0.0f,0.0f);
+    glRotatef(yRot,0.0f,1.0f,0.0f);
+    glTranslatef(0.0f,0.0f,zDistance);
+    glTranslatef(0.0f,0.0f,-200.0f);
+    
+    //sun
+    glColor3f(0.92, 0.73, 0.71);
+   
     glutSolidSphere(10.0f, 15, 15);
     
+    //earth
     glPushMatrix();
     glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
-    glTranslatef(90.0f,0.0f, 0.0f);
-    glColor3f( 0.87, 0.77, 0.91);
-    glutSolidSphere(6.0f, 15, 15);
+    glTranslatef(60.0f,0.0f, 0.0f);
+    glColor3f(0.71, 0.83, 0.91);
+    glutSolidSphere(8.0f, 15, 15);
+    
+    
+    //moon
+    glPushMatrix();
+    glRotatef(10.0f, 0.0f, 0.0f, 1.0f);
+    glRotatef(fElect2, 0.0f, 1.0f, 0.0f);
+    glTranslatef(-20.0f, 0.0f, 0.0f);
+    glColor3f(0.97, 0.92, 0.65);
+    glutSolidSphere(3.0f, 15, 15);
+    glPopMatrix();
+
     glPopMatrix();
     
-    glPushMatrix();
-    glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
-    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
-    glTranslatef(-70.0f, 0.0f, 0.0f);
-    glutSolidSphere(6.0f, 15, 15);
-    glPopMatrix();
-    
-    glPushMatrix();
-    glRotatef(90.0f, 0.0f, 0.0f, 1.0f);
-    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
-    glTranslatef(0.0f, 0.0f, 60.0f);
-    glutSolidSphere(6.0f, 15, 15);
-    glPopMatrix();
+//    glPushMatrix();
+//    glRotatef(90.0f, 0.0f, 0.0f, 1.0f);
+//    glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
+//    glTranslatef(0.0f, 0.0f, 60.0f);
+//    glutSolidSphere(6.0f, 15, 15);
+//    glPopMatrix();
     
     fElect1 += 10.0f;
+    fElect2 += 30.0f;
     glutSwapBuffers();
     
 }
@@ -88,13 +106,14 @@ void ControlKey(int key, int x, int y)
     if(key == GLUT_KEY_RIGHT){
         yRot += 5.0f;
     }
-//    if(key == GLUT_KEY_HOME) {
-//        zDistance += 5.0f;
-//    }//add
-//    
-//    if(key == GLUT_KEY_END) {
-//        zDistance -= 5.0f;
-//    }//add
+    if(key == GLUT_KEY_F1) {
+        zDistance += 5.0f;
+    }//add
+    
+    if(key == GLUT_KEY_F2) {
+        zDistance -= 5.0f;
+    }//add
+
     glutPostRedisplay();
 }
 
@@ -112,10 +131,9 @@ void ChangeSize(GLsizei w, GLsizei h)
    
     gluPerspective(60.0f, fAspect, 1.0f, 500.0f);
     
+    
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    
-    glTranslatef(0.0f, 0.0f, -200.0f);
 }
 
 int main(int argc,char * argv[])
