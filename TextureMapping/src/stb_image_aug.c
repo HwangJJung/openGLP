@@ -3319,7 +3319,7 @@ static float *hdr_load(stbi *s, int *x, int *y, int *comp, int req_comp)
    char buffer[HDR_BUFLEN];
 	char *token;
 	int valid = 0;
-	long width, height;
+	int width, height;
    stbi_uc *scanline;
 	float *hdr_data;
 	int len;

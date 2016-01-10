@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		B308487E1C228CEE00AD35CC /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B308487D1C228CEE00AD35CC /* GLUT.framework */; };
 		B35EBD6B1C1E7D38006D850B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35EBD6A1C1E7D38006D850B /* OpenGL.framework */; };
-		B3BABFF11C428C680099DD12 /* gltools.h in Sources */ = {isa = PBXBuildFile; fileRef = B361FC3A1C2BC79800C35CB5 /* gltools.h */; };
-		B3BABFF41C42D0EA0099DD12 /* practice2.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFEF1C427DEB0099DD12 /* practice2.m */; };
+		B3BABFFC1C42DDE30099DD12 /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF71C42DDE30099DD12 /* image_DXT.c */; };
+		B3BABFFD1C42DDE30099DD12 /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF81C42DDE30099DD12 /* image_helper.c */; };
+		B3BABFFE1C42DDE30099DD12 /* SOIL.c in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF91C42DDE30099DD12 /* SOIL.c */; };
+		B3BABFFF1C42DDE30099DD12 /* SOIL.h in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFFA1C42DDE30099DD12 /* SOIL.h */; };
+		B3BAC0001C42DDE30099DD12 /* stb_image_aug.c in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFFB1C42DDE30099DD12 /* stb_image_aug.c */; };
+		B3BAC0021C42DE400099DD12 /* practice4.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BAC0011C42DE400099DD12 /* practice4.m */; };
+		B3BAC0091C42E3260099DD12 /* texture.png in Copy Files */ = {isa = PBXBuildFile; fileRef = B3BAC0041C42DE520099DD12 /* texture.png */; };
+		B3BAC00A1C42E6840099DD12 /* src in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF51C42DD880099DD12 /* src */; };
+		B3BAC00E1C42EAE10099DD12 /* fire.jpeg in Copy Files */ = {isa = PBXBuildFile; fileRef = B3BAC00B1C42EAE10099DD12 /* fire.jpeg */; };
+		B3BAC00F1C42EAE10099DD12 /* ice.jpg in Copy Files */ = {isa = PBXBuildFile; fileRef = B3BAC00C1C42EAE10099DD12 /* ice.jpg */; };
+		B3BAC0101C42EAE10099DD12 /* TennisBallColorMap.jpg in Copy Files */ = {isa = PBXBuildFile; fileRef = B3BAC00D1C42EAE10099DD12 /* TennisBallColorMap.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B35EBD5E1C1E7CF6006D850B /* CopyFiles */ = {
+		B35EBD5E1C1E7CF6006D850B /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = resources;
+			dstSubfolderSpec = 7;
 			files = (
+				B3BAC00E1C42EAE10099DD12 /* fire.jpeg in Copy Files */,
+				B3BAC00F1C42EAE10099DD12 /* ice.jpg in Copy Files */,
+				B3BAC0101C42EAE10099DD12 /* TennisBallColorMap.jpg in Copy Files */,
+				B3BAC0091C42E3260099DD12 /* texture.png in Copy Files */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -36,6 +50,17 @@
 		B3BABFED1C423BD40099DD12 /* practice1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice1.m; sourceTree = "<group>"; };
 		B3BABFEF1C427DEB0099DD12 /* practice2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice2.m; sourceTree = "<group>"; };
 		B3BABFF21C4290210099DD12 /* practice3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice3.m; sourceTree = "<group>"; };
+		B3BABFF51C42DD880099DD12 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = "Simple OpenGL Image Library/src"; sourceTree = "<group>"; };
+		B3BABFF71C42DDE30099DD12 /* image_DXT.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = image_DXT.c; path = "Simple OpenGL Image Library/src/image_DXT.c"; sourceTree = "<group>"; };
+		B3BABFF81C42DDE30099DD12 /* image_helper.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = image_helper.c; path = "Simple OpenGL Image Library/src/image_helper.c"; sourceTree = "<group>"; };
+		B3BABFF91C42DDE30099DD12 /* SOIL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = SOIL.c; path = "Simple OpenGL Image Library/src/SOIL.c"; sourceTree = "<group>"; };
+		B3BABFFA1C42DDE30099DD12 /* SOIL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SOIL.h; path = "Simple OpenGL Image Library/src/SOIL.h"; sourceTree = "<group>"; };
+		B3BABFFB1C42DDE30099DD12 /* stb_image_aug.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = stb_image_aug.c; path = "Simple OpenGL Image Library/src/stb_image_aug.c"; sourceTree = "<group>"; };
+		B3BAC0011C42DE400099DD12 /* practice4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice4.m; sourceTree = "<group>"; };
+		B3BAC0041C42DE520099DD12 /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		B3BAC00B1C42EAE10099DD12 /* fire.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fire.jpeg; sourceTree = "<group>"; };
+		B3BAC00C1C42EAE10099DD12 /* ice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ice.jpg; sourceTree = "<group>"; };
+		B3BAC00D1C42EAE10099DD12 /* TennisBallColorMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TennisBallColorMap.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +79,12 @@
 		B35EBD571C1E7CF6006D850B = {
 			isa = PBXGroup;
 			children = (
+				B3BABFF71C42DDE30099DD12 /* image_DXT.c */,
+				B3BABFF81C42DDE30099DD12 /* image_helper.c */,
+				B3BABFF91C42DDE30099DD12 /* SOIL.c */,
+				B3BABFFA1C42DDE30099DD12 /* SOIL.h */,
+				B3BABFFB1C42DDE30099DD12 /* stb_image_aug.c */,
+				B3BABFF51C42DD880099DD12 /* src */,
 				B308487D1C228CEE00AD35CC /* GLUT.framework */,
 				B35EBD6A1C1E7D38006D850B /* OpenGL.framework */,
 				B35EBD621C1E7CF6006D850B /* openGL */,
@@ -72,6 +103,7 @@
 		B35EBD621C1E7CF6006D850B /* openGL */ = {
 			isa = PBXGroup;
 			children = (
+				B3BAC0031C42DE490099DD12 /* resources */,
 				B3BABFEC1C4235F50099DD12 /* practice */,
 				B361FC3C1C2BC7B200C35CB5 /* main2.m */,
 				B361FC391C2BC79800C35CB5 /* Drawjet.cp */,
@@ -92,11 +124,23 @@
 		B3BABFEC1C4235F50099DD12 /* practice */ = {
 			isa = PBXGroup;
 			children = (
+				B3BAC0011C42DE400099DD12 /* practice4.m */,
 				B3BABFF21C4290210099DD12 /* practice3.m */,
 				B3BABFEF1C427DEB0099DD12 /* practice2.m */,
 				B3BABFED1C423BD40099DD12 /* practice1.m */,
 			);
 			name = practice;
+			sourceTree = "<group>";
+		};
+		B3BAC0031C42DE490099DD12 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3BAC00B1C42EAE10099DD12 /* fire.jpeg */,
+				B3BAC00C1C42EAE10099DD12 /* ice.jpg */,
+				B3BAC00D1C42EAE10099DD12 /* TennisBallColorMap.jpg */,
+				B3BAC0041C42DE520099DD12 /* texture.png */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,7 +152,7 @@
 			buildPhases = (
 				B35EBD5C1C1E7CF6006D850B /* Sources */,
 				B35EBD5D1C1E7CF6006D850B /* Frameworks */,
-				B35EBD5E1C1E7CF6006D850B /* CopyFiles */,
+				B35EBD5E1C1E7CF6006D850B /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -155,8 +199,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BABFF41C42D0EA0099DD12 /* practice2.m in Sources */,
-				B3BABFF11C428C680099DD12 /* gltools.h in Sources */,
+				B3BAC00A1C42E6840099DD12 /* src in Sources */,
+				B3BAC0021C42DE400099DD12 /* practice4.m in Sources */,
+				B3BABFFC1C42DDE30099DD12 /* image_DXT.c in Sources */,
+				B3BABFFD1C42DDE30099DD12 /* image_helper.c in Sources */,
+				B3BABFFE1C42DDE30099DD12 /* SOIL.c in Sources */,
+				B3BABFFF1C42DDE30099DD12 /* SOIL.h in Sources */,
+				B3BAC0001C42DDE30099DD12 /* stb_image_aug.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
