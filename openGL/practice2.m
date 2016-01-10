@@ -102,23 +102,20 @@ void ControlKey(int key, int x, int y)
 
 void ChangeSize(GLsizei w, GLsizei h)
 {
-    GLfloat nRange = 100.0f;
+    GLfloat fAspect;
     glViewport(0, 0, w, h);
+    
+    fAspect = (GLfloat)w/(GLfloat)h;
+    
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if(w<=h)
-    {
-        window_width = nRange;
-        window_height = nRange*h/w;
-        glOrtho(-window_width, window_width, -window_height, window_height, -nRange*2.0f,nRange*2.0f);
-    }
-    else {
-        window_width = nRange*w/h;
-        window_height = nRange;
-        glOrtho(-window_width, window_width, -window_height, window_height, -nRange*2.0f, nRange*2.0f);
-    }
+   
+    gluPerspective(60.0f, fAspect, 1.0f, 500.0f);
+    
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    
+    glTranslatef(0.0f, 0.0f, -200.0f);
 }
 
 int main(int argc,char * argv[])
