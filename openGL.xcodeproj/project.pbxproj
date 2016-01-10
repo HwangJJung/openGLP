@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		B308487E1C228CEE00AD35CC /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B308487D1C228CEE00AD35CC /* GLUT.framework */; };
 		B35EBD6B1C1E7D38006D850B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35EBD6A1C1E7D38006D850B /* OpenGL.framework */; };
-		B361FC3E1C2BC7D100C35CB5 /* gltools.h in Sources */ = {isa = PBXBuildFile; fileRef = B361FC3A1C2BC79800C35CB5 /* gltools.h */; };
-		B3BABFEE1C423BD40099DD12 /* practice1.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFED1C423BD40099DD12 /* practice1.m */; };
+		B3BABFF01C427DEB0099DD12 /* practice2.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFEF1C427DEB0099DD12 /* practice2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +33,7 @@
 		B361FC3A1C2BC79800C35CB5 /* gltools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gltools.h; sourceTree = "<group>"; };
 		B361FC3C1C2BC7B200C35CB5 /* main2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main2.m; sourceTree = "<group>"; };
 		B3BABFED1C423BD40099DD12 /* practice1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice1.m; sourceTree = "<group>"; };
+		B3BABFEF1C427DEB0099DD12 /* practice2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 		B35EBD621C1E7CF6006D850B /* openGL */ = {
 			isa = PBXGroup;
 			children = (
-				B3BABFEC1C4235F50099DD12 /* practice1 */,
+				B3BABFEC1C4235F50099DD12 /* practice */,
 				B361FC3C1C2BC7B200C35CB5 /* main2.m */,
 				B361FC391C2BC79800C35CB5 /* Drawjet.cp */,
 				B361FC3A1C2BC79800C35CB5 /* gltools.h */,
@@ -87,12 +87,13 @@
 			name = before;
 			sourceTree = "<group>";
 		};
-		B3BABFEC1C4235F50099DD12 /* practice1 */ = {
+		B3BABFEC1C4235F50099DD12 /* practice */ = {
 			isa = PBXGroup;
 			children = (
+				B3BABFEF1C427DEB0099DD12 /* practice2.m */,
 				B3BABFED1C423BD40099DD12 /* practice1.m */,
 			);
-			name = practice1;
+			name = practice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BABFEE1C423BD40099DD12 /* practice1.m in Sources */,
-				B361FC3E1C2BC7D100C35CB5 /* gltools.h in Sources */,
+				B3BABFF01C427DEB0099DD12 /* practice2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

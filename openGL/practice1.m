@@ -77,15 +77,16 @@ void TimerFunction(int value) //callback
                         rp[i]->xstep = -rp[i]->xstep;
                         rp[j]->xstep = -rp[j]->xstep;
                     }
+                    
                 }
                 //y방향 확인
                 if(rp[i]->y + rsize > rp[j]->y && rp[i]->y < rp[j]->y + rsize) {
                     if(rp[i]->x + rsize >rp[j]->x && rp[i]->x < rp[j]->x +rsize) {
                         rp[i]->ystep = -rp[i]->ystep;
                         rp[j]->ystep = -rp[j]->ystep;
+                    
                     }
                 }
-
             }
         }
         
@@ -95,18 +96,6 @@ void TimerFunction(int value) //callback
     
     glutPostRedisplay();
     glutTimerFunc(22, TimerFunction,1);
-}
-
-
-// draw text on screen
-void DrawText(int x, int y, char* strMsg, void* font)
-{
-    glColor3f(0,0,0);
-    int len = (int)strlen(strMsg);
-    for ( int i = 0 ; i < len ; ++i )
-    {
-        glutBitmapCharacter( font, strMsg[i] );
-    }
 }
 
 void SetupRC(void) {
