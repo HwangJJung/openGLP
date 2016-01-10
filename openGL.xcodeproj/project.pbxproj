@@ -10,7 +10,7 @@
 		B308487E1C228CEE00AD35CC /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B308487D1C228CEE00AD35CC /* GLUT.framework */; };
 		B35EBD6B1C1E7D38006D850B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35EBD6A1C1E7D38006D850B /* OpenGL.framework */; };
 		B3BABFF11C428C680099DD12 /* gltools.h in Sources */ = {isa = PBXBuildFile; fileRef = B361FC3A1C2BC79800C35CB5 /* gltools.h */; };
-		B3BABFF31C4290210099DD12 /* practice3.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF21C4290210099DD12 /* practice3.m */; };
+		B3BABFF41C42D0EA0099DD12 /* practice2.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFEF1C427DEB0099DD12 /* practice2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -155,7 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BABFF31C4290210099DD12 /* practice3.m in Sources */,
+				B3BABFF41C42D0EA0099DD12 /* practice2.m in Sources */,
 				B3BABFF11C428C680099DD12 /* gltools.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

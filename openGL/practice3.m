@@ -73,8 +73,6 @@ void SetupRC() {
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
     glEnable(GL_COLOR_MATERIAL);
     glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
-    
-   
     glClearColor(0.71f, 0.74f, 0.76f, 1.0f);
 }
 

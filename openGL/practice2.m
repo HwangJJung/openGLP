@@ -18,18 +18,15 @@ static GLfloat zDistance = 0.0f;
 
 
 //Light setting
-GLfloat ambientLight[] = { 0.3f, 0.3f, 0.5f, 1.0f };
-GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
-GLfloat lightPos[] = { 0.0f, 0.0f, 75.0f, 1.0f };
-GLfloat specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-GLfloat specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+GLfloat ambientLight[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+GLfloat nomat[] = { 0.05f, 0.05f, 0.05f, 1.0f };
+GLfloat diffuseLight[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+GLfloat emissionLight[] = { 0.6f, 0.6f, 0.6f, 0.3f };
 
 
-// 윈도우 크기 선언
-GLfloat window_width;
-GLfloat window_height;
-
-
+GLfloat lightPos[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+//GLfloat specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+//GLfloat specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 void SetupRC(void) {
     
@@ -40,15 +37,14 @@ void SetupRC(void) {
     
     
     glLightfv(GL_LIGHT0,GL_AMBIENT,ambientLight);
-    glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuseLight);
-    glLightfv(GL_LIGHT0,GL_SPECULAR, specular);
+   glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuseLight);
+//    glLightfv(GL_LIGHT0,GL_SPECULAR, specular);
     glEnable(GL_LIGHT0);
    
     glEnable(GL_COLOR_MATERIAL);
-    glColorMaterial( GL_FRONT,GL_AMBIENT_AND_DIFFUSE);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, specref); // add – specular
-    glMateriali(GL_FRONT, GL_SHININESS, 128); // add - specular
-    
+  
+//    glMaterialfv(GL_FRONT, GL_SPECULAR, specref); // add – specular
+  
     glClearColor(0.0f,0.0f,0.0f,1.0f);
 }
 
@@ -72,15 +68,24 @@ void RenderScene(void) {
     glTranslatef(0.0f,0.0f,zDistance);
     glTranslatef(0.0f,0.0f,-200.0f);
     glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
-    //sun
-    glColor3f(0.92, 0.73, 0.71);
-   
-    glutSolidSphere(10.0f, 15, 15);
+       //sun
+    
+    glPushMatrix();
+    glColor3f(0.91, 0.29, 0.21);
+    glColorMaterial( GL_FRONT,GL_AMBIENT_AND_DIFFUSE);
+    glMateriali(GL_FRONT, GL_SHININESS, 128);
+    glMaterialfv(GL_FRONT, GL_EMISSION, emissionLight);
+    glutSolidSphere(20.0f, 15, 15);
+    glPopMatrix();
     
     //earth
     glPushMatrix();
     glRotatef(fElect1, 0.0f, 1.0f, 0.0f);
     glTranslatef(60.0f,0.0f, 0.0f);
+    glColorMaterial( GL_FRONT,GL_DIFFUSE);
+     glMateriali(GL_FRONT, GL_SHININESS, 50);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, nomat);
+    glMaterialfv(GL_FRONT, GL_EMISSION, nomat);
     glColor3f(0.71, 0.83, 0.91);
     glutSolidSphere(8.0f, 15, 15);
     
@@ -93,7 +98,7 @@ void RenderScene(void) {
     glColor3f(0.97, 0.92, 0.65);
     glutSolidSphere(3.0f, 15, 15);
     glPopMatrix();
-
+    
     glPopMatrix();
     
 //    glPushMatrix();
