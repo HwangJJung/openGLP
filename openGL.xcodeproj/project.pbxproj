@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		B308487E1C228CEE00AD35CC /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B308487D1C228CEE00AD35CC /* GLUT.framework */; };
 		B35EBD6B1C1E7D38006D850B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35EBD6A1C1E7D38006D850B /* OpenGL.framework */; };
-		B3BABFF01C427DEB0099DD12 /* practice2.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFEF1C427DEB0099DD12 /* practice2.m */; };
 		B3BABFF11C428C680099DD12 /* gltools.h in Sources */ = {isa = PBXBuildFile; fileRef = B361FC3A1C2BC79800C35CB5 /* gltools.h */; };
+		B3BABFF31C4290210099DD12 /* practice3.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BABFF21C4290210099DD12 /* practice3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +35,7 @@
 		B361FC3C1C2BC7B200C35CB5 /* main2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main2.m; sourceTree = "<group>"; };
 		B3BABFED1C423BD40099DD12 /* practice1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice1.m; sourceTree = "<group>"; };
 		B3BABFEF1C427DEB0099DD12 /* practice2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice2.m; sourceTree = "<group>"; };
+		B3BABFF21C4290210099DD12 /* practice3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = practice3.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		B3BABFEC1C4235F50099DD12 /* practice */ = {
 			isa = PBXGroup;
 			children = (
+				B3BABFF21C4290210099DD12 /* practice3.m */,
 				B3BABFEF1C427DEB0099DD12 /* practice2.m */,
 				B3BABFED1C423BD40099DD12 /* practice1.m */,
 			);
@@ -153,8 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BABFF31C4290210099DD12 /* practice3.m in Sources */,
 				B3BABFF11C428C680099DD12 /* gltools.h in Sources */,
-				B3BABFF01C427DEB0099DD12 /* practice2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

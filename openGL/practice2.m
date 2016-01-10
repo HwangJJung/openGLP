@@ -33,7 +33,6 @@ GLfloat window_height;
 
 void SetupRC(void) {
     
-    
     glEnable(GL_DEPTH_TEST);
     glFrontFace(GL_CCW); // 반시계 방향 회전
     glEnable(GL_CULL_FACE); // hidden face 제거

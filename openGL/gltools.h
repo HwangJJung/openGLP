@@ -268,4 +268,5 @@ GLfloat gltDistanceToPlane(GLTVector3 vPoint, GLTVector4 vPlane)
     {
     return vPoint[0]*vPlane[0] + vPoint[1]*vPlane[1] + vPoint[2]*vPlane[2] + vPlane[3];
     }
-    
+
+
