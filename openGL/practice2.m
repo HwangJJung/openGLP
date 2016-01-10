@@ -3,8 +3,11 @@
 #import <Foundation/Foundation.h>
 #import <OpenGL/OpenGL.h>
 #import <GLUT/GLUT.h>
-
+#include <stdlib.h>
 #include <math.h>
+#include "gltools.h" // // gltools library link ( Normal 을 구하는 함수 구현 )
+
+
 
 #define GL_PI 3.1415f
 
@@ -14,6 +17,12 @@ static GLfloat yRot = 0.0f;
 static GLfloat zDistance = 0.0f;
 
 
+//Light setting
+GLfloat ambientLight[] = { 0.3f, 0.3f, 0.5f, 1.0f };
+GLfloat diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };
+GLfloat lightPos[] = { 0.0f, 0.0f, 75.0f, 1.0f };
+GLfloat specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+GLfloat specref[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 
 // 윈도우 크기 선언
@@ -23,11 +32,25 @@ GLfloat window_height;
 
 
 void SetupRC(void) {
-    glClearColor(0.0f,0.0f,0.0f,1.0f);
+    
+    
     glEnable(GL_DEPTH_TEST);
     glFrontFace(GL_CCW); // 반시계 방향 회전
     glEnable(GL_CULL_FACE); // hidden face 제거
+    glEnable(GL_LIGHTING);
     
+    
+    glLightfv(GL_LIGHT0,GL_AMBIENT,ambientLight);
+    glLightfv(GL_LIGHT0,GL_DIFFUSE,diffuseLight);
+    glLightfv(GL_LIGHT0,GL_SPECULAR, specular);
+    glEnable(GL_LIGHT0);
+   
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial( GL_FRONT,GL_AMBIENT_AND_DIFFUSE);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, specref); // add – specular
+    glMateriali(GL_FRONT, GL_SHININESS, 128); // add - specular
+    
+    glClearColor(0.0f,0.0f,0.0f,1.0f);
 }
 
 void TimerFunc(int value) {
@@ -49,7 +72,7 @@ void RenderScene(void) {
     glRotatef(yRot,0.0f,1.0f,0.0f);
     glTranslatef(0.0f,0.0f,zDistance);
     glTranslatef(0.0f,0.0f,-200.0f);
-    
+    glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
     //sun
     glColor3f(0.92, 0.73, 0.71);
    
