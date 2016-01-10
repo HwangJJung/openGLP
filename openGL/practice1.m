@@ -5,49 +5,112 @@
 #import <GLUT/GLUT.h>
 
 //정사각형의 위치와 크기의 초기값 설정
-GLfloat x5 = 0.0f;
-GLfloat y5 = 0.0f;
 
 GLsizei rsize = 50.0f;
-
-GLfloat xstep = 1.0f;
-GLfloat ystep = 1.0f;
 
 // 윈도우 크기 선언
 GLfloat window_width;
 GLfloat window_height;
 
+struct RectPoint {
+    GLfloat x;
+    GLfloat y;
+    float rgb[3];
+    
+    GLfloat xstep;
+    GLfloat ystep;
+
+};
+
+
+const int MAX= 4;
+
+struct RectPoint rects[MAX] = {
+    { -50.0f, 0.0f, {0.96, 0.76, 0.73}, 1.0f, 1.0f},
+    { 50.0f, 0.0f, {0.71, 0.93, 0.8}, 1.0f, 1.0f},
+    { -125.0f, -75.0f, {0.97, 0.92, 0.65}, 1.0f, 1.0f},
+    { 25.0f, -75.0f, {0.87, 0.77, 0.91}, 1.0f, 1.0f},
+
+};
+
+struct RectPoint *rp[MAX] = {
+ &rects[0],
+ &rects[1],
+ &rects[2],
+ &rects[3],
+};
 
 void RenderScene(void) {
-    
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(0.96, 0.76, 0.73);
-    glRectf(x5,y5,x5+rsize,y5+rsize);
+    for (int i =0; i<MAX; i++) {
+        glColor3f(rects[i].rgb[0],rects[i].rgb[1],rects[i].rgb[2]);
+        glRectf(rects[i].x,rects[i].y,rects[i].x+rsize,rects[i].y+rsize);
+        glColor3f(0,0,0);
+    }
     //사각형의 생성
     glutSwapBuffers(); //드로잉 실행 후 버퍼 교체
 }
 
 void TimerFunction(int value) //callback
-{ //x축 범위 (window 안에서 돌아나니도록 설정)
-    if(x5 > window_width -rsize || x5 < -window_width)
-        xstep = -xstep;
-    //y축 범위 (window 안에서 돌아다니도록 설정)
-    if(y5> window_height -rsize || y5 < -window_height)
-        ystep = -ystep;
-    //윈도우가 변경되어 경계를 넘어갔을 때
-    if(x5 > window_width-rsize)
-        x5 = window_width-rsize -1;
-    if(y5 > window_height-rsize)
-        y5 = window_height - rsize -1;
+{
+    for (int i =0; i<MAX; i++) {
+//        struct RectPoint *p = &rects[i];
+//        //x축 범위 (window 안에서 돌아나니도록 설정)
+        if(rp[i]->x + rsize  > window_width || rp[i]->x < -window_width)
+            rp[i]->xstep = -rp[i]->xstep;
+        //y축 범위 (window 안에서 돌아다니도록 설정)
+        if(rp[i]->y + rsize > window_height || rp[i]->y < -window_height)
+            rp[i]->ystep = -rp[i]->ystep;
+        
+        //윈도우가 변경되어 경계를 넘어갔을 때
+        if(rp[i]->x > window_width-rsize)
+            rp[i]->x = window_width-rsize -1;
+        if(rp[i]->y > window_height-rsize)
+            rp[i]->y = window_height - rsize -1;
+//        
+        //다른 rect랑 부딪혔을때
+        for(int j=0; j<MAX; j++) {
+            if(i!=j) {
+                //x방향 확인
+                if(rp[i]->x + rsize >rp[j]->x && rp[i]->x < rp[j]->x +rsize) {
+                    if(rp[i]->y + rsize > rp[j]->y && rp[i]->y < rp[j]->y + rsize) {
+                        rp[i]->xstep = -rp[i]->xstep;
+                        rp[j]->xstep = -rp[j]->xstep;
+                    }
+                }
+                //y방향 확인
+                if(rp[i]->y + rsize > rp[j]->y && rp[i]->y < rp[j]->y + rsize) {
+                    if(rp[i]->x + rsize >rp[j]->x && rp[i]->x < rp[j]->x +rsize) {
+                        rp[i]->ystep = -rp[i]->ystep;
+                        rp[j]->ystep = -rp[j]->ystep;
+                    }
+                }
+
+            }
+        }
+        
+        rp[i]->x += rp[i]->xstep;
+        rp[i]->y += rp[i]->ystep;
+    }
     
-    x5 += xstep;
-    y5 += ystep;
     glutPostRedisplay();
-    glutTimerFunc(33, TimerFunction,1);
+    glutTimerFunc(22, TimerFunction,1);
+}
+
+
+// draw text on screen
+void DrawText(int x, int y, char* strMsg, void* font)
+{
+    glColor3f(0,0,0);
+    int len = (int)strlen(strMsg);
+    for ( int i = 0 ; i < len ; ++i )
+    {
+        glutBitmapCharacter( font, strMsg[i] );
+    }
 }
 
 void SetupRC(void) {
-    glClearColor(0.67, 0.91, 0.86, 1.0f);
+    glClearColor(0.91, 0.92, 0.93, 1.0f);
 }
 
 
